@@ -1,0 +1,392 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Daniel Stubblefield Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAF9; --surface:#FFFFFF; --surface-alt:#F1F4F3;
+    --ink:#16242A; --subtle:#57666A; --faint:#8B979A;
+    --teal:#1C3A40; --teal-deep:#0F2226; --sage:#3E7A6E;
+    --rule:#DCE2E1; --head-row:#1C3A40; --head-text:#F3F6F5;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0D1414; --surface:#131C1C; --surface-alt:#182322;
+      --ink:#ECF1F0; --subtle:#A7B4B2; --faint:#7C8A88;
+      --teal:#7FC2B3; --teal-deep:#0A1616; --sage:#8CD4C2;
+      --rule:#25302F; --head-row:#132622; --head-text:#DFF3EE;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0D1414; --surface:#131C1C; --surface-alt:#182322;
+    --ink:#ECF1F0; --subtle:#A7B4B2; --faint:#7C8A88;
+    --teal:#7FC2B3; --teal-deep:#0A1616; --sage:#8CD4C2;
+    --rule:#25302F; --head-row:#132622; --head-text:#DFF3EE;
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    font-size:16px; line-height:1.55;
+    padding-inline:0;
+  }
+  .wrap{ max-width:840px; margin:0 auto; padding-inline:20px; }
+  h1,h2,h3{ font-family:"Space Grotesk", system-ui, sans-serif; text-wrap:balance; }
+  a{ color:var(--sage); }
+  .mono{ font-family:"IBM Plex Mono", monospace; }
+
+  header.nav{
+    position:sticky; top:env(safe-area-inset-top,0px);
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--rule);
+    z-index:10;
+  }
+  header.nav .inner{
+    max-width:840px; margin:0 auto; padding:12px 20px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    flex-wrap:wrap;
+  }
+  header.nav .name{ font-family:"Space Grotesk"; font-weight:600; font-size:15px; }
+  header.nav nav{ display:flex; gap:18px; flex-wrap:wrap; }
+  header.nav nav a{ color:var(--subtle); text-decoration:none; font-size:14px; font-weight:500; }
+  header.nav nav a:hover{ color:var(--teal); }
+
+  .hero{ padding-block:44px 8px; }
+  .eyebrow{ font-size:13px; letter-spacing:.06em; text-transform:uppercase; color:var(--sage); font-weight:600; margin:0 0 10px; }
+  .hero h1{ font-size:clamp(28px,5vw,40px); line-height:1.12; margin:0 0 10px; color:var(--ink); }
+  .hero .role{ font-size:17px; color:var(--subtle); margin:0 0 18px; }
+  .contact-row{ display:flex; flex-wrap:wrap; gap:8px 18px; font-size:14px; color:var(--subtle); margin-bottom:26px; }
+  .contact-row a{ text-decoration:none; }
+
+  .card{
+    background:var(--surface); border:1px solid var(--rule); border-radius:10px;
+    padding:22px 24px;
+  }
+  .overview-list{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:12px; }
+  .overview-list li{ padding-left:20px; position:relative; font-size:15px; }
+  .overview-list li::before{ content:"—"; position:absolute; left:0; color:var(--sage); }
+  .overview-list b{ color:var(--ink); }
+
+  .bestfit{ margin-top:18px; font-size:14px; color:var(--subtle); }
+  .bestfit b{ color:var(--ink); }
+
+  .stats{
+    display:grid; grid-template-columns:repeat(5,1fr); gap:10px; margin-block:32px;
+  }
+  .stat{
+    background:var(--surface-alt); border:1px solid var(--rule); border-radius:8px;
+    padding:16px 8px; text-align:center;
+  }
+  .stat .n{ font-family:"Space Grotesk"; font-weight:700; font-size:22px; color:var(--teal); display:block; }
+  .stat .l{ font-size:11.5px; color:var(--subtle); margin-top:4px; line-height:1.3; }
+  @media (max-width:640px){ .stats{ grid-template-columns:repeat(2,1fr); } }
+
+  section{ padding-block:36px; border-top:1px solid var(--rule); }
+  section:first-of-type{ border-top:none; }
+  section h2{ font-size:24px; margin:0 0 6px; }
+  .section-sub{ color:var(--subtle); font-size:14.5px; margin:0 0 22px; }
+  p{ margin:0 0 14px; }
+  p:last-child{ margin-bottom:0; }
+
+  .narrative{ font-size:15.5px; color:var(--subtle); }
+
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; margin-block:16px; }
+  caption{ caption-side:bottom; text-align:left; font-size:12.5px; color:var(--faint); font-style:italic; padding-top:6px; }
+  thead th{ background:var(--head-row); color:var(--head-text); text-align:left; padding:9px 12px; font-weight:600; }
+  tbody td{ padding:9px 12px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  tbody tr:nth-child(even){ background:var(--surface-alt); }
+  .table-wrap{ overflow-x:auto; }
+
+  .case{ margin-bottom:30px; }
+  .case:last-child{ margin-bottom:0; }
+  .case-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:2px; }
+  .case-num{ font-family:"Space Grotesk"; font-weight:700; color:var(--sage); font-size:14px; }
+  .case h3{ font-size:19px; margin:0; }
+  .case .sub{ color:var(--subtle); font-style:italic; font-size:14.5px; margin:2px 0 8px; }
+  .meta{ font-size:12.5px; font-weight:600; color:var(--teal); margin-bottom:10px; }
+  .case ul{ margin:10px 0 0; padding-left:20px; }
+  .case li{ margin-bottom:5px; font-size:14.5px; }
+  .evidence{
+    margin-top:12px; padding:12px 14px; background:var(--surface-alt);
+    border-left:3px solid var(--sage); border-radius:0 6px 6px 0; font-size:14px;
+  }
+  .evidence b{ color:var(--ink); }
+  .code-line{ font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--subtle); margin-top:6px; }
+
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+  .chip{ background:var(--surface-alt); border:1px solid var(--rule); border-radius:20px; padding:5px 12px; font-size:12.5px; color:var(--subtle); }
+
+  footer{ padding:36px 0 48px; border-top:1px solid var(--rule); text-align:center; }
+  footer .name{ font-family:"Space Grotesk"; font-weight:600; font-size:15px; margin-bottom:6px; }
+  footer .links{ display:flex; flex-wrap:wrap; justify-content:center; gap:14px; font-size:13.5px; color:var(--subtle); margin-top:8px; }
+  footer .links a{ text-decoration:none; }
+  footer .note{ margin-top:16px; font-size:12.5px; color:var(--faint); max-width:520px; margin-inline:auto; }
+</style>
+
+<header class="nav">
+  <div class="inner">
+    <div class="name">Daniel Stubblefield</div>
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#cases">Case studies</a>
+      <a href="#systems">Systems &amp; governance</a>
+      <a href="#framework">Framework</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero" id="overview">
+    <p class="eyebrow">Portfolio · September 2026</p>
+    <h1>AI-Enabled Business Process &amp; Operations Architecture</h1>
+    <p class="role">I translate complex business and operational requirements into AI-enabled systems that automate work, connect platforms, and produce measurable gains in speed, quality, and cost.</p>
+    <div class="contact-row">
+      <a href="mailto:danstubblefield@rivercityconsulting.site">danstubblefield@rivercityconsulting.site</a>
+      <span>814-308-2789</span>
+      <a href="https://www.linkedin.com/in/danstubblefield" target="_blank" rel="noopener">linkedin.com/in/danstubblefield</a>
+      <a href="https://github.com/WazukiSan" target="_blank" rel="noopener">github.com/WazukiSan</a>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 14px; font-size:15px; color:var(--subtle); font-weight:600; text-transform:uppercase; letter-spacing:.04em;">The 30-second version</h3>
+      <ul class="overview-list">
+        <li><b>River City OS</b> — built and operate a live AI-enabled business operations system in production today: Python/FastAPI backend, Supabase/PostgreSQL data layer with row-level security, Gmail API integration, deployed on Render, with a human-approval gate before any external action.</li>
+        <li><b>Cyient</b> — decomposed a complex geospatial mission requirement from client L3Harris into an implementation plan and helped architect the Janus Geography digital-twin delivery, supporting mission users including NGA and NRO on a program valued at more than $10M.</li>
+        <li><b>TA Group Holdings (Averro/NuWest)</b> — led workforce transformation and AI-driven program automation for aerospace and technology organizations including Microsoft and Blue Origin, building specialized AI search tools for orbital-launch-vehicle and rocket-propulsion engineering talent.</li>
+        <li><b>Versant Workforce Solutions</b> — as founding VP, directed AI and agentic automation for scheduling, compliance, analytics, and workforce optimization as Product Owner across ATS, HRIS, CRM, and reporting platforms.</li>
+        <li><b>Modis, Unum, Versant, River City</b> — integrated AI-assisted resume scoring, evaluation, outreach automation, and data governance into Bullhorn and Workday; at Unum, also built AI-assisted interview scheduling tools and automated ServiceNow maintenance-ticket fulfillment.</li>
+        <li><b>Credentials</b> — SAFe 6.0 Product Owner/Product Manager and Scrum Master certified; M.S. in Artificial Intelligence and Machine Learning in progress, University of the Cumberlands, capstone beginning October 2026.</li>
+      </ul>
+      <p class="bestfit"><b>Best-fit roles:</b> AI Product Leader, AI Business Process Architect, AI Transformation Leader, Enterprise AI Adoption Lead, Intelligent Automation &amp; Operations Architect, and AI Solutions Architect roles with a hands-on build component.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="n">92</span><span class="l">researched target companies in a live pipeline</span></div>
+      <div class="stat"><span class="n">42</span><span class="l">personalized emails queued in production</span></div>
+      <div class="stat"><span class="n">$10M+</span><span class="l">program impact supported at Cyient</span></div>
+      <div class="stat"><span class="n">10+</span><span class="l">years across product, program, and AI delivery</span></div>
+      <div class="stat"><span class="n">2</span><span class="l">SAFe 6.0 certifications, plus M.S. AI/ML in progress</span></div>
+    </div>
+  </section>
+
+  <section id="profile">
+    <h2>Executive profile</h2>
+    <p class="section-sub">Business process improvement through AI</p>
+    <p>I design and implement AI-enabled operating systems that improve business processes, connect enterprise platforms, automate multi-step workflows, and produce measurable gains in throughput, quality, cost, and decision-making. My work combines architecture, product judgment, operational ownership, governance, and adoption.</p>
+    <p class="narrative">My path runs from technical recruiting and workforce transformation at Unum, Modis, and TA Group Holdings, through program and product ownership on complex technical programs at Cyient and Versant, to founding River City Consulting and personally designing, building, and operating a live AI-enabled operating system. Each step added a layer: domain fluency, program leadership, product ownership, and now hands-on AI system delivery.</p>
+    <div class="chips">
+      <span class="chip">Python, FastAPI</span><span class="chip">Supabase/PostgreSQL</span><span class="chip">Google Cloud</span>
+      <span class="chip">Microsoft cloud services</span><span class="chip">Gmail API &amp; OAuth</span><span class="chip">Bullhorn</span>
+      <span class="chip">Workday</span><span class="chip">ServiceNow</span><span class="chip">RAG &amp; vector retrieval</span>
+      <span class="chip">Function calling</span><span class="chip">Agent orchestration (MCP-style)</span><span class="chip">Audit logging &amp; guardrails</span>
+      <span class="chip">Human-in-the-loop review</span>
+    </div>
+  </section>
+
+  <section id="cases">
+    <h2>Case studies</h2>
+    <p class="section-sub">Five programs across founder-led product, defense, aerospace, and enterprise workforce technology</p>
+
+    <div class="case">
+      <div class="case-head"><span class="case-num">01</span><h3>River City OS</h3></div>
+      <p class="sub">A live AI-enabled business operations system</p>
+      <p class="meta">Employer: River City Consulting (founder)</p>
+      <p>As founder of River City Consulting, I needed a single operating system to find, qualify, and act on new business opportunities without losing founder time to fragmented manual research, tracking, and outreach spread across disconnected tools.</p>
+      <ul>
+        <li>Python/FastAPI backend deployed on Render, connected to a Supabase/PostgreSQL data layer with row-level security</li>
+        <li>Gmail API integration via OAuth for inbox monitoring, message classification, and approved outbound send</li>
+        <li>Structured opportunity, contact, approval, and audit-event tables as the system of record</li>
+        <li>Claude-based research, scoring, and message-preparation workflow, with human approval required before any external communication leaves the system</li>
+      </ul>
+      <div class="evidence">
+        <b>Evidence.</b> The opportunity pipeline is live with 92 independently researched target companies and named contacts. The first outreach batch, 42 personalized messages built from real contact data, is queued in production with a human approval step still required before anything sends. A pre-send review caught and excluded one contact record whose email address pointed to the wrong company's domain — a concrete example of the quality gate catching a real error before it reached an outside recipient.
+        <div class="code-line">Code: github.com/WazukiSan/river-city-os</div>
+      </div>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><span class="case-num">02</span><h3>Janus Geography</h3></div>
+      <p class="sub">A defense geospatial digital-twin program</p>
+      <p class="meta">Employer: Cyient · Client: L3Harris · Mission users: GIS team, supporting NGA and NRO</p>
+      <p>At Cyient, I helped architect the implementation of the Janus Geography digital-twin program for a GIS team. Working from a mission requirement defined by client L3Harris, I decomposed the need into a structured implementation plan, then translated that plan for the engineering and delivery team that built and deployed the system, supporting mission users including NGA and NRO — a program valued at more than $10M in impact.</p>
+      <ul>
+        <li>Converted a complex mission need into a structured, implementable plan</li>
+        <li>Bridged mission stakeholders, the GIS team, and the engineering team executing the build</li>
+        <li>Applied geospatial, IIoT, and connected-systems context to guide planning decisions</li>
+      </ul>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><span class="case-num">03</span><h3>AI-assisted discovery for scarce technical domains</h3></div>
+      <p class="sub">Evidence matching for exceptionally scarce technical profiles</p>
+      <p class="meta">Employer: TA Group Holdings (Averro/NuWest) · Role: Workforce Transformation &amp; Technology Program Manager, Aerospace &amp; Technology Solutions · Jan 2021–Nov 2022</p>
+      <p>Leading workforce transformation and technology program delivery for aerospace and technology organizations, including programs with Microsoft and Blue Origin, I developed AI-supported research and evidence-matching workflows that convert complex technical requirements into structured criteria, search for and normalize evidence on exceptionally scarce technical profiles, apply deterministic requirements, and use AI reasoning to assess fit and flag missing information before any outreach happens. This approach was applied to aerospace, avionics, propulsion, and orbital-launch-vehicle engineering domains supporting the Blue Origin program.</p>
+      <ul>
+        <li>Translated complex requirements into structured decision criteria</li>
+        <li>Combined deterministic rules with AI reasoning and evidence synthesis</li>
+        <li>Preserved expert review before any outreach or other consequential action</li>
+        <li>Generalizes to due diligence, vendor evaluation, and compliance review — any workflow that requires verifying scarce or hard-to-confirm information before acting on it</li>
+      </ul>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><span class="case-num">04</span><h3>AI-assisted digital intake and service funnels</h3></div>
+      <p>The intake experience is AI-assisted while conventional cloud infrastructure handles hosting, persistence, authentication, and delivery. AI accelerates content creation, request interpretation, and routing, while a human retains final review on anything consequential. Measured on completion rate, step-level drop-off, staff minutes per request, routing accuracy, and system cost per completed request — the same funnel architecture supports customer inquiries, onboarding, qualification, case routing, scheduling, and escalation across business functions.</p>
+    </div>
+
+    <div class="case">
+      <div class="case-head"><span class="case-num">05</span><h3>AI administrative assistant for founder operations</h3></div>
+      <p class="meta">Employer: River City Consulting (founder)</p>
+      <p>The assistant captures work from email, calendar, notes, and forms; maintains structured task state; applies priority and deadline rules; prepares drafts and briefs; requests approval where needed; and logs outcomes. This work uses the same operating patterns found in ClickUp and Airtable — structured records, owners, statuses, due dates, views, automation triggers, exception queues, and dashboards — which I have designed and integrated across enterprise operating platforms including Bullhorn, Workday, and ServiceNow, alongside Supabase/PostgreSQL, service funnels, and Google and Microsoft productivity workflows.</p>
+    </div>
+  </section>
+
+  <section id="systems">
+    <h2>Enterprise AI integrations</h2>
+    <p class="section-sub">Workflow, scheduling, and fulfillment automation across Modis, Unum, Versant, and River City</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Implementation</th><th>Architecture and integration</th><th>Operational value</th></tr></thead>
+      <tbody>
+        <tr><td>Bullhorn and Workday AI integration (Modis, Versant, Unum, River City)</td><td>Helped integrate AI-assisted resume scoring, evaluation, workflow routing, outreach automation, and data governance through CRM/HRIS data and backend API patterns.</td><td>Improved consistency, throughput, and quality of the operating workflow at each employer.</td></tr>
+        <tr><td>Interview scheduling automation (Unum)</td><td>Built AI-assisted interview scheduling tools coordinating multiple stakeholders and calendars in a large corporate environment.</td><td>Reduced scheduling effort, handoff delays, and avoidable coordination errors.</td></tr>
+        <tr><td>ServiceNow fulfillment (Unum)</td><td>Built administrative automation for maintenance-ticket intake, routing, fulfillment, status, and exception workflows.</td><td>Accelerated request handling and created traceable operational ownership.</td></tr>
+        <tr><td>Scheduling, compliance, and analytics automation (Versant)</td><td>As Product Owner for ATS, HRIS, CRM, and reporting platforms, directed AI and agentic automation for scheduling, compliance, analytics, and workforce optimization.</td><td>Improved consistency and executive visibility across a founding operating platform.</td></tr>
+        <tr><td>Backend API layer (River City Consulting)</td><td>Built the backend API layer using structured JSON contracts to move data among AI services, operational databases, cloud platforms, and enterprise systems.</td><td>Separated business logic from vendor interfaces and supported reusable integrations.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Enterprise AI workflows were designed around role-based access, appropriate data use, human review, traceable decisions, structured records, and controlled movement of personal and operational data — governance treated as part of the architecture rather than a final compliance step.</p>
+
+    <h2 style="margin-top:36px;">Additional systems experience</h2>
+    <p class="section-sub">Evidence beyond current generative AI builds</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Experience (employer)</th><th>System relevance</th><th>Contribution</th></tr></thead>
+      <tbody>
+        <tr><td>Caterpillar Defense IIoT</td><td>Connected assets, sensors, cloud data, and dashboarding.</td><td>Program and product leadership across capture, integration, visibility, and delivery.</td></tr>
+        <tr><td>Janus Geography digital-twin (Cyient; client L3Harris)</td><td>Complex geospatial implementation for a GIS team, supporting mission users including NGA and NRO.</td><td>Helped architect the implementation, decomposed mission requirements into a plan, and coordinated delivery with the engineering team; supported a program valued at more than $10M.</td></tr>
+        <tr><td>Aerospace talent search tools (TA Group Holdings, Averro/NuWest)</td><td>AI-assisted discovery for niche aerospace, avionics, and orbital-launch-vehicle engineering domains supporting Microsoft and Blue Origin programs.</td><td>Designed the discovery, evidence-matching, and verification workflow for exceptionally scarce technical profiles.</td></tr>
+        <tr><td>Scheduling, compliance, and analytics automation (Versant)</td><td>AI-enabled workforce startup; ATS, HRIS, CRM, and reporting platforms.</td><td>Product Owner directing AI and agentic automation for scheduling, compliance, analytics, and workforce optimization.</td></tr>
+        <tr><td>Enterprise operations leadership</td><td>High-volume workflows, stakeholders, and process governance.</td><td>Standardization, adoption, data integrity, and change leadership.</td></tr>
+        <tr><td>Business operations and delivery (River City Consulting)</td><td>Operating-system state, funnels, and client workflows.</td><td>Workflow design, exception handling, service levels, and outcome measurement.</td></tr>
+        <tr><td>SAFe product leadership</td><td>Backlogs, priorities, acceptance criteria, dependencies, and risk.</td><td>Converts business needs into sequenced technical work and quality gates.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 style="margin-top:36px;">Architecture ownership</h2>
+    <p class="section-sub">Versant and River City operating scope</p>
+    <p>Across Versant and River City, I owned or helped lead the full lifecycle of agentic and non-agentic AI implementation: opportunity discovery, architecture, product selection, workflow design, delivery standards, measurement, mentoring, and continuous improvement. As founding VP at Versant, I was Product Owner for the ATS, HRIS, CRM, and reporting platform suite and directed AI and agentic automation for scheduling, compliance, analytics, and workforce optimization; as founder of River City, I apply the same ownership model end to end, including build-versus-buy criteria and quantified ROI for every product.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Responsibility</th><th>Applied experience</th></tr></thead>
+      <tbody>
+        <tr><td>End-to-end automation architecture</td><td>Designed connected workflows across business development, operations, client experience, finance, and content.</td></tr>
+        <tr><td>Agent pipelines</td><td>Architected multi-step pipelines that ingest, normalize, score, research, prepare actions, obtain approval, execute, log outcomes, and trigger follow-up.</td></tr>
+        <tr><td>Build versus buy</td><td>Created repeatable criteria covering strategic differentiation, data governance, integration effort, reliability, time to value, total ownership cost, and vendor dependency.</td></tr>
+        <tr><td>Technical standards</td><td>Established expectations for schemas, APIs, documentation, approval controls, auditability, testing, reusable components, and production handoff.</td></tr>
+        <tr><td>Production delivery</td><td>Built systems for real operational volume, including sourcing, outreach, client workflows, applicant experience, service requests, and business administration.</td></tr>
+        <tr><td>ROI accountability</td><td>Quantified labor savings, error reduction, throughput, conversion, revenue contribution, operating cost, and payback for AI products and automations.</td></tr>
+        <tr><td>Mentorship</td><td>Led and developed technical, product, and operational contributors through architecture patterns, debugging, documentation, delivery discipline, and feedback.</td></tr>
+        <tr><td>Technology scouting</td><td>Continuously evaluated models, agent frameworks, automation platforms, cloud services, and integration approaches.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 style="margin-top:36px;">Production standards</h2>
+    <p class="section-sub">How I would govern an automation portfolio</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Standard</th><th>Quality gate or measure</th></tr></thead>
+      <tbody>
+        <tr><td>Architecture</td><td>Named owner; inputs, outputs, dependencies, data stores, and failure modes.</td></tr>
+        <tr><td>Data</td><td>Schema validation, traceability, access rules, and no model memory as system of record.</td></tr>
+        <tr><td>Safety</td><td>Risk tier, approval boundary, least privilege, and unsafe-action controls.</td></tr>
+        <tr><td>Reliability</td><td>Timeouts, bounded retries, idempotency, exception queues, health checks, recovery.</td></tr>
+        <tr><td>Evaluation</td><td>Normal, edge, and adversarial tests; human revision and override rates.</td></tr>
+        <tr><td>Observability</td><td>Structured logs, workflow IDs, latency, cost, failures, alerts, and outcomes.</td></tr>
+        <tr><td>Documentation</td><td>Diagram, runbook, decision records, change history, and support owner.</td></tr>
+        <tr><td>ROI</td><td>Baseline, target, actual benefit, operating cost, payback, and retirement threshold.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section id="framework">
+    <h2>Cross-industry opportunity map</h2>
+    <p class="section-sub">Reusable AI process-improvement patterns</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Area</th><th>Potential implementation</th><th>Outcome</th></tr></thead>
+      <tbody>
+        <tr><td>Customer experience</td><td>Grounded knowledge, triage, recommendation, and escalation assistant.</td><td>Faster responses with human escalation.</td></tr>
+        <tr><td>Customer journey</td><td>Lead-to-service orchestration across inquiry, onboarding, delivery, support, and retention.</td><td>Consistent handoffs and fewer missed moments.</td></tr>
+        <tr><td>Operations</td><td>Coordination across requests, assignments, inspections, exceptions, inventory, and readiness.</td><td>Process visibility and fewer delays.</td></tr>
+        <tr><td>Maintenance</td><td>Issue classification, asset history, ticket routing, and recurring-failure analysis.</td><td>Faster resolution and fewer repeats.</td></tr>
+        <tr><td>Finance</td><td>Invoice extraction, duplicate detection, matching, flags, and exception routing.</td><td>Less manual entry and fewer errors.</td></tr>
+        <tr><td>Content</td><td>Approved-source pipeline with brand checks, factual validation, approval, and feedback.</td><td>More throughput with quality control.</td></tr>
+        <tr><td>Voice of customer</td><td>Review, survey, and message intelligence with themes, risk flags, and action tracking.</td><td>Earlier detection of experience problems.</td></tr>
+        <tr><td>Leadership</td><td>Dashboard for automation coverage, exceptions, health, ROI, and priorities.</td><td>One view of leverage, risk, and priorities.</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h2 style="margin-top:36px;">Delivery framework</h2>
+    <p class="section-sub">From process discovery to measurable improvement</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Period</th><th>Focus</th><th>Deliverables</th></tr></thead>
+      <tbody>
+        <tr><td>Discover</td><td>Understand the process</td><td>Process map; users and owners; baseline time, cost, errors, volume, risk, data, and constraints.</td></tr>
+        <tr><td>Prioritize</td><td>Select the right intervention</td><td>Value, feasibility, risk, effort, adoption, build-versus-buy, and expected-payback decision.</td></tr>
+        <tr><td>Design</td><td>Create the operating architecture</td><td>System boundary; workflow; data contracts; controls; exceptions; evaluation plan; support model.</td></tr>
+        <tr><td>Deliver</td><td>Ship and operationalize</td><td>Production implementation; integration; testing; documentation; training; monitoring; ownership.</td></tr>
+        <tr><td>Measure</td><td>Improve or retire</td><td>Actual ROI; adoption; reliability; accuracy; exception rate; feedback; architecture debt; next iteration.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Prioritization scores business value, current labor, volume, error cost, revenue potential, feasibility, data readiness, implementation effort, risk, compliance, time to value, and owner readiness — this prioritizes value rather than request volume. Outcome formulas: annual benefit equals labor savings plus errors avoided plus incremental contribution margin; ROI equals annual benefit minus annual system cost, divided by annual system cost. Each estimate is labeled observed, calculated, targeted, or projected.</p>
+  </section>
+
+  <section id="education">
+    <h2>Graduate AI and machine learning work</h2>
+    <p class="section-sub">University of the Cumberlands</p>
+    <p>M.S. in Artificial Intelligence and Machine Learning, capstone beginning October 2026. Graduate work connects machine learning, data preparation, applied AI, human-computer interaction, and responsible AI to practical systems design.</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Academic area</th><th>Applied work and tools</th><th>Architecture relevance</th></tr></thead>
+      <tbody>
+        <tr><td>Data preparation and analytics</td><td>KNIME Titanic workflow with CSV ingestion, inspection, missing-value treatment, descriptive statistics, skewness, kurtosis, and visualization.</td><td>Demonstrates reproducible data preparation, data-quality decisions, analysis, and visual workflow development.</td></tr>
+        <tr><td>Machine and deep learning</td><td>Python, Jupyter, Google Colab, RapidMiner, TensorFlow, neural networks, CNNs, RNNs, training, testing, and model evaluation.</td><td>Supports informed decisions about data, models, evaluation, deployment boundaries, and traditional predictive AI.</td></tr>
+        <tr><td>RAG and AI applications</td><td>Retail-investor RAG and LLM chatbot using Python, VS Code, GitHub, Jupyter, Hugging Face, Gradio, retrieval pipelines, and interface design.</td><td>Demonstrates retrieval-grounded generation, application architecture, deployment, and human-computer interaction.</td></tr>
+        <tr><td>Responsible AI</td><td>Privacy, informed consent, data minimization, behavioral profiling, fairness, human oversight, testing, logging, accountability, escalation, and misuse analysis.</td><td>Provides a governance foundation for high-risk workflows and human-controlled AI systems.</td></tr>
+        <tr><td>Research and capstone</td><td>Capstone begins October 2026; research preparation spans applied AI, ethics, privacy, evaluation, and business implementation.</td><td>Extends the portfolio through a formal research and evaluation process.</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="margin-top:18px;"><b>Certifications:</b> SAFe 6.0 Product Owner/Product Manager (PO/PM) · SAFe 6.0 Scrum Master (SSM) · AIRS Certified Senior Technical Recruiter</p>
+  </section>
+
+  <footer id="contact">
+    <div class="name">Daniel Stubblefield</div>
+    <div style="color:var(--subtle); font-size:14px;">Technical Program Manager · AI Product Owner · Workforce Transformation Leader</div>
+    <div class="links">
+      <a href="mailto:danstubblefield@rivercityconsulting.site">danstubblefield@rivercityconsulting.site</a>
+      <span>814-308-2789</span>
+      <a href="https://www.linkedin.com/in/danstubblefield" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/WazukiSan" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="note">Chattanooga Valley, GA · River City Consulting</p>
+  </footer>
+</div>
+
+</body></html>
