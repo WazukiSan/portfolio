@@ -182,6 +182,9 @@ border-left:3px solid var(--sage); border-radius:0 6px 6px 0; font-size:14px;
 .evidence b{ color:var(--ink); }
 .code-line{ font-family:"IBM Plex Mono"; font-size:12.5px; color:var(--subtle); margin-top:6px; }
 
+.shot{ margin:14px 0 6px; }
+.shot img{ width:100%; height:auto; border:1px solid var(--rule); border-radius:8px; display:block; }
+.shot figcaption{ font-size:12.5px; color:var(--faint); margin-top:8px; line-height:1.45; }
 .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
 .chip{ background:var(--surface-alt); border:1px solid var(--rule); border-radius:20px; padding:5px 12px; font-size:12.5px; color:var(--subtle); }
 
@@ -228,7 +231,7 @@ footer .note{ margin-top:16px; font-size:12.5px; color:var(--faint); max-width:5
 <li><b>TA Group Holdings (Averro/NuWest)</b> — led workforce transformation and AI-driven program automation for aerospace and technology organizations including Microsoft and Blue Origin, building specialized AI search tools for orbital-launch-vehicle and rocket-propulsion engineering talent.</li>
 <li><b>Versant Workforce Solutions</b> — as founding VP, directed AI and agentic automation for scheduling, compliance, analytics, and workforce optimization as Product Owner across ATS, HRIS, CRM, and reporting platforms.</li>
 <li><b>Modis, Unum, Versant, River City</b> — integrated AI-assisted resume scoring, evaluation, outreach automation, and data governance into Bullhorn and Workday; at Unum, also built AI-assisted interview scheduling tools and automated ServiceNow maintenance-ticket fulfillment.</li>
-<li><b>QuestKeep and QuestKeep Learn</b> — two AI product concepts I designed and built with Claude: a fantasy guild interface where a user directs practical AI agents, and a storybook learning town where AI guides plan lessons for homeschool, general education, and tutoring. Learn runs locally today; the agent guild is a concept site with a written MVP spec.</li>
+<li><b>QuestKeep and QuestKeep Learn</b> — two AI products I designed and built with Claude: a game-style interface where a user directs specialist AI agents through a plan, a blocked-question pause, and final sign-off, and a storybook learning town where AI guides plan lessons for homeschool, general education, and tutoring. QuestKeep has a working demo of a rudimentary agent run; Learn runs locally.</li>
 <li><b>Credentials</b> — SAFe 6.0 Product Owner/Product Manager and Scrum Master certified; M.S. in Artificial Intelligence and Machine Learning in progress, University of the Cumberlands, capstone beginning October 2026.</li>
 </ul>
 <p class="bestfit"><b>Best-fit roles:</b> AI Product Leader, AI Business Process Architect, AI Transformation Leader, Enterprise AI Adoption Lead, Intelligent Automation &amp; Operations Architect, and AI Solutions Architect roles with a hands-on build component.</p>
@@ -318,17 +321,22 @@ footer .note{ margin-top:16px; font-size:12.5px; color:var(--faint); max-width:5
 
 <div class="case">
 <div class="case-head"><span class="case-num">06</span><h3>QuestKeep</h3></div>
-<p class="sub">A fantasy guild interface for practical AI agents</p>
-<p class="meta">Employer: independent product work · Status: concept site and written MVP specification</p>
-<p>QuestKeep turns agent work into a game world that reflects real task state. A user gives the Guildmaster a goal, reviews a plan, assigns specialist agents, follows execution through a dungeon, and accepts or revises a concrete result. I designed the product rules and built the concept site with Claude.</p>
+<p class="sub">A fantasy guild interface that makes AI agent work visible and controllable</p>
+<p class="meta">Employer: independent product work · Status: working demo of a rudimentary multi-agent run, with a written MVP specification</p>
+<p>QuestKeep turns agent work into a game world that mirrors real task state. A user hands a goal to the Guildmaster, approves the plan, and watches specialist agents carry out each step as a quest through a town and dungeon. The user answers questions when an agent is blocked and signs off on the finished result. I designed the product rules and built the demo with Claude.</p>
+<figure class="shot">
+<img src="questkeep-demo.webp" width="1120" height="995" loading="lazy" alt="QuestKeep demo interface running a Friday schedule email quest. A town view and a dungeon view show a Guildmaster, researcher, writer, and reviewer agent at work, with a party panel, a quest board of Plan, Research, Draft, Check, and Accept stages, and a running budget of $0.0033 against a $1.00 limit. The researcher has paused and posted a question for the user.">
+<figcaption>Demo run: the Guildmaster has an approved plan, the researcher is gathering cited facts and has paused to ask the user a question, and the writer and reviewer are queued. The quest board shows each stage, and the header tracks spend against a $1.00 budget ($0.0033 so far).</figcaption>
+</figure>
 <ul>
-<li>Every quest has a useful output and visible acceptance criteria; the Guildmaster plans and routes while specialists execute bounded steps</li>
-<li>Every dungeon event maps to a real run event (started, progress, blocked, review, failed, completed), so animation never decides whether work succeeded</li>
-<li>Task owner, tool permissions, cost, evidence, and final output are visible without searching the map</li>
-<li>First functional milestone specified: one complete quest with planner, researcher, writer, and reviewer, persisted so a run resumes after refresh</li>
+<li>Role separation: a Guildmaster plans and routes work, and specialist agents (researcher, writer, reviewer) each execute one bounded step</li>
+<li>Every on-screen event maps to a real run event (started, progress, blocked, review, failed, completed), so the animation reports task state and never decides whether work succeeded</li>
+<li>Human checkpoints built into the flow: plan approval before work starts, agents that stop and ask when blocked, and user acceptance of the final output</li>
+<li>Cost control surfaced in the interface: live spend against a per-quest budget, plus visible task owner, permissions, and evidence</li>
+<li>Next milestone specified: one complete quest persisted so a run resumes after a page refresh</li>
 </ul>
 <div class="evidence">
-<b>Honest status.</b> A concept landing page and a product specification exist. Agent execution, accounts, and billing are not built yet.
+<b>Honest status.</b> The demo runs rudimentary agentic tasks with the visual interface shown above. Accounts, billing, and production hardening are not built.
 <div class="code-line">Code: github.com/WazukiSan/questkeep (private repository)</div>
 </div>
 </div>
